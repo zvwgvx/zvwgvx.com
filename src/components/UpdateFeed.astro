@@ -63,11 +63,7 @@ const { items, collapsible = false } = Astro.props;
 
     checkOverflow();
 
-    if ("ResizeObserver" in window) {
-      const observer = new ResizeObserver(checkOverflow);
-      observer.observe(summary);
-    } else {
-      window.addEventListener("resize", checkOverflow);
-    }
+    const observer = new ResizeObserver(checkOverflow);
+    observer.observe(summary);
   });
 </script>
