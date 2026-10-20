@@ -2,27 +2,76 @@
 
 Personal research and engineering website of Giang Truong Vu (Zang Vu / @zvwgvx).
 
-Built with Astro, TypeScript and MDX. The site prioritizes readable research notes, technical writing, and accurate project documentation.
+Astro + TypeScript + MDX, deployed as pre-rendered static assets on **Cloudflare Workers**. No server-side Worker code or Cloudflare Astro adapter is required.
 
 ## Development
 
-Requires Node.js 24 or newer.
+Use Node.js 24.
 
 ```sh
 npm install
 npm run dev
 ```
 
-For production:
+Production build and local Astro preview:
 
 ```sh
 npm run build
 npm run preview
 ```
 
-## Deployment
+Test against Cloudflare's local runtime:
 
-Cloudflare Pages: build command `npm run build`, output directory `dist`, environment `NODE_VERSION=24`. Point the custom domain `zvwgvx.com` to the Pages deployment after reviewing the generated site.
+```sh
+npm run preview:cloudflare
+```
+
+## Cloudflare Workers deployment
+
+The project uses **Workers Static Assets**, configured in `wrangler.toml`:
+
+- Worker name: `zvwgvx-site`
+- Assets: `dist/`
+- Static page routing: Astro directory indexes with trailing slashes
+- Missing pages: custom `404.html`
+- No adapter, backend server or exposed API keys
+
+### Recommended: Cloudflare Workers Builds + GitHub
+
+1. Add `zvwgvx.com` as a Cloudflare DNS zone and ensure the zone becomes **Active**. If registered elsewhere, update its nameservers with your registrar first.
+2. In [Cloudflare Workers & Pages](https://dash.cloudflare.com/?to=/:account/workers-and-pages), choose **Create application** and connect **GitHub**.
+3. Select the `zvwgvx/zvwgvx.com` repository and production branch `main`.
+4. Use `zvwgvx-site` as the Worker name, matching `wrangler.toml`.
+5. Use these build settings:
+   - Root directory: repository root
+   - Build command: `npm run build`
+   - Deploy command: `npx wrangler deploy`
+   - Node.js: 24
+6. Deploy and test the Cloudflare-provided `*.workers.dev` URL.
+7. In the Worker dashboard, go to **Settings → Domains & Routes → Add → Custom Domain** and attach `zvwgvx.com`. Cloudflare handles DNS and TLS for the Worker once the zone is active. If an existing DNS record conflicts with this host, resolve that record before attaching it.
+
+Workers Builds deploys automatically when changes land on `main`. Do not configure a second GitHub Actions deployment workflow unless you deliberately disable Workers Builds to avoid competing deployments.
+
+### Alternative: manual Wrangler deployment
+
+Authenticate on your own computer:
+
+```sh
+npx wrangler login
+npm run deploy
+```
+
+The custom domain is set up separately in the Cloudflare dashboard. Never commit API tokens, account secrets or `.env` files.
+
+### Validation
+
+```sh
+npm run check
+npm run build
+npm run check:cloudflare
+```
+
+The GitHub Actions Build workflow validates the same Wrangler configuration without deploying.
 
 ## Content
 
