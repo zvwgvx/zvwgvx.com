@@ -3,9 +3,10 @@ import { formatPeriod, type Update } from "../data/updates";
 
 interface Props {
   items: Update[];
+  collapsible?: boolean;
 }
 
-const { items } = Astro.props;
+const { items, collapsible = false } = Astro.props;
 ---
 
 <div class="updates-list">
@@ -19,8 +20,54 @@ const { items } = Astro.props;
         <h3>
           {item.url ? <a href={item.url} target={item.url.startsWith("http") ? "_blank" : undefined} rel={item.url.startsWith("http") ? "noreferrer" : undefined}>{item.title} <span aria-hidden="true">↗</span></a> : item.title}
         </h3>
-        {item.summary && <p>{item.summary}</p>}
+        {item.summary && (
+          <div data-update-expandable={collapsible ? "" : undefined}>
+            <p class="update-summary" id={collapsible ? `update-summary-${index}` : undefined}>{item.summary}</p>
+            {collapsible && (
+              <button class="update-toggle" type="button" aria-expanded="false" aria-controls={`update-summary-${index}`} hidden>
+                <span data-update-toggle-label>Show more</span>
+                <span data-update-toggle-arrow aria-hidden="true">↓</span>
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </article>
   ))}
 </div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-update-expandable]").forEach((wrapper) => {
+    const summary = wrapper.querySelector<HTMLElement>(".update-summary");
+    const toggle = wrapper.querySelector<HTMLButtonElement>(".update-toggle");
+    if (!summary || !toggle) return;
+
+    const label = toggle.querySelector<HTMLElement>("[data-update-toggle-label]");
+    const arrow = toggle.querySelector<HTMLElement>("[data-update-toggle-arrow]");
+    let expanded = false;
+
+    const checkOverflow = () => {
+      if (expanded) return;
+      summary.classList.add("is-clamped");
+      toggle.hidden = summary.scrollHeight <= summary.clientHeight + 1;
+    };
+
+    toggle.addEventListener("click", () => {
+      expanded = !expanded;
+      summary.classList.toggle("is-clamped", !expanded);
+      toggle.setAttribute("aria-expanded", String(expanded));
+      if (label) label.textContent = expanded ? "Show less" : "Show more";
+      if (arrow) arrow.textContent = expanded ? "↑" : "↓";
+      if (!expanded) checkOverflow();
+    });
+
+    checkOverflow();
+
+    if ("ResizeObserver" in window) {
+      const observer = new ResizeObserver(checkOverflow);
+      observer.observe(summary);
+    } else {
+      window.addEventListener("resize", checkOverflow);
+    }
+  });
+</script>
