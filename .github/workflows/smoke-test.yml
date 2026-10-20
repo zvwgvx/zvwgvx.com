@@ -44,7 +44,7 @@ jobs:
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Curriculum vitae"
           curl -fsS http://127.0.0.1:4321/ | grep -q 'data-update-expandable'
           curl -fsS http://127.0.0.1:4321/ | grep -q 'Show more'
-          if curl -fsS http://127.0.0.1:4321/updates/ | grep -q 'data-update-expandable'; then
+          if curl -fsS http://127.0.0.1:4321/updates/ | grep -q 'class="update-toggle"'; then
             echo "Archive must show full updates without expandable controls"
             exit 1
           fi
