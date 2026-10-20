@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectList from "../../components/ProjectList.astro";
+import { projects } from "../../data/projects";
+---
+
+<BaseLayout title="Work — Giang Truong Vu" description="Research and engineering projects by Giang Truong Vu: AELIA, RiFT, Lattice, 9Router and OpusMC.">
+  <header class="page-intro">
+    <span class="eyebrow">Research / engineering</span>
+    <h1>Work</h1>
+    <p>Selected research directions, systems and open-source projects. Each entry distinguishes ongoing work from deployed or verified capabilities.</p>
+  </header>
+
+  <section class="content-section" aria-labelledby="primary-work">
+    <div class="section-heading">
+      <h2 id="primary-work"><span class="section-index">01 /</span> Research & systems</h2>
+    </div>
+    <ProjectList projects={projects.filter((project) => project.selected)} />
+  </section>
+
+  <section class="content-section" aria-labelledby="other-work">
+    <div class="section-heading">
+      <h2 id="other-work"><span class="section-index">02 /</span> Open source & side projects</h2>
+    </div>
+    <ProjectList projects={projects.filter((project) => !project.selected)} />
+  </section>
+</BaseLayout>

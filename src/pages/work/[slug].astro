@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { projects, type Project } from "../../data/projects";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={project.name + " — Giang Truong Vu"} description={project.description}>
+  <article>
+    <header class="detail-hero">
+      <a href="/work/" class="back-link">← All work</a>
+      <h1>{project.name}</h1>
+      <p class="detail-subtitle">{project.label}</p>
+      <p class="detail-description">{project.description}</p>
+      <div class="detail-meta">
+        <div><span class="detail-field-label">Field</span><strong>{project.category}</strong></div>
+        <div><span class="detail-field-label">Affiliation</span><strong>{project.affiliation}</strong></div>
+        <div><span class="detail-field-label">Status</span><strong>{project.phase}</strong></div>
+      </div>
+    </header>
+    <section class="detail-section" aria-labelledby="overview">
+      <h2 id="overview">Overview</h2>
+      {project.introduction.map((paragraph) => <p>{paragraph}</p>)}
+    </section>
+    <section class="detail-section" aria-labelledby="areas">
+      <h2 id="areas">Areas of focus</h2>
+      <ul class="focus-list">
+        {project.areas.map((area) => <li>{area}</li>)}
+      </ul>
+    </section>
+    <section class="detail-section" aria-labelledby="stack">
+      <h2 id="stack">Technology & concepts</h2>
+      <div class="tag-list">{project.stack.map((item) => <span class="tag">{item}</span>)}</div>
+    </section>
+    {project.repository && (
+      <section class="detail-section" aria-labelledby="source">
+        <h2 id="source">Source & references</h2>
+        <a class="resource-link" href={project.repository} target="_blank" rel="noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+      </section>
+    )}
+  </article>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    date: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title + " — Giang Truong Vu"} description={frontmatter.description}>
+  <article>
+    <header class="page-intro">
+      <a href="/writing/" class="back-link">← All writing</a>
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.description}</p>
+      <p class="mono" style="font-size:11px;margin-top:15px;color:var(--soft)">{frontmatter.date} · Note</p>
+    </header>
+    <div class="prose"><slot /></div>
+  </article>
+</BaseLayout>

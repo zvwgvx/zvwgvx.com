@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="CV — Giang Truong Vu" description="Curriculum vitae of Giang Truong Vu: AI research, backend engineering and systems projects.">
+  <header class="page-intro">
+    <span class="eyebrow">Curriculum vitae</span>
+    <h1>Giang Truong Vu</h1>
+    <p>Zang Vu / @zvwgvx · AI Research · Backend & Systems Engineering</p>
+    <div class="cv-actions">
+      <button class="secondary-button" data-print-cv type="button">Print / Save as PDF ↗</button>
+    </div>
+  </header>
+
+  <section class="section-block">
+    <h2>Interests</h2>
+    <p>Cognitive AI, autonomous agents, cybersecurity, backend infrastructure and distributed systems.</p>
+  </section>
+
+  <section class="section-block">
+    <h2>Education</h2>
+    <div class="cv-entry">
+      <span class="cv-key">2025 – 2028</span>
+      <div class="cv-value"><strong>Luong Van Tuy High School for the Gifted</strong><p>Computer Science · Algorithms & Competitive Programming</p></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>Research & engineering</h2>
+    <div class="cv-entry">
+      <span class="cv-key">SENTIA Lab</span>
+      <div class="cv-value"><strong>AELIA — Cognitive architecture</strong><p>Experimental long-lived AI agent architecture involving persistent memory, evolving beliefs, internal state and social dynamics.</p></div>
+    </div>
+    <div class="cv-entry">
+      <span class="cv-key">RiFT Research</span>
+      <div class="cv-value"><strong>RiFT — Security agent infrastructure</strong><p>Early-stage exploration of AI-assisted security assessment, sandboxed execution, bridge connectivity and tool orchestration.</p></div>
+    </div>
+    <div class="cv-entry">
+      <span class="cv-key">SENTIA Lab</span>
+      <div class="cv-value"><strong>Lattice — Distributed systems</strong><p>Resource-network engineering, identity and signed protocols, policy controls and cross-platform infrastructure.</p></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>Other technical work</h2>
+    <div class="cv-entry">
+      <span class="cv-key">Open source</span>
+      <div class="cv-value"><strong>9Router</strong><p>AI routing and developer-tooling related work.</p></div>
+    </div>
+    <div class="cv-entry">
+      <span class="cv-key">Side project</span>
+      <div class="cv-value"><strong>OpusMC</strong><p>Experimental client development and related software engineering.</p></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>Technical skills</h2>
+    <p><strong>Languages:</strong> Python, Rust, TypeScript, JavaScript, Node.js ecosystem.</p>
+    <p><strong>Engineering:</strong> Backend APIs, agent architectures, tool integration, Linux, networking, distributed systems, sandboxing and security-oriented development.</p>
+  </section>
+
+  <section class="section-block">
+    <h2>Links</h2>
+    <div class="inline-links">
+      <a href="https://github.com/zvwgvx" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a href="https://sentialab.org" target="_blank" rel="noreferrer">SENTIA Lab ↗</a>
+      <a href="https://github.com/RiFT-Research" target="_blank" rel="noreferrer">RiFT Research ↗</a>
+      <a href="/work/">Projects ↗</a>
+    </div>
+  </section>
+  <script>
+    document.querySelector("[data-print-cv]")?.addEventListener("click", () => window.print());
+  </script>
+</BaseLayout>

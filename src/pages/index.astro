@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectList from "../components/ProjectList.astro";
+import { selectedProjects } from "../data/projects";
+---
+
+<BaseLayout>
+  <section class="hero">
+    <span class="eyebrow">Independent research & engineering</span>
+    <h1>Giang Truong Vu<span class="identity-dot">.</span></h1>
+    <p class="hero-name-secondary">Zang Vu / @zvwgvx</p>
+    <p class="hero-lede">Working at the intersection of cognitive AI and systems engineering.</p>
+    <p class="hero-summary">I explore autonomous agents, memory and internal state, while building backend infrastructure, security tooling and distributed systems. My work focuses on understanding how complex systems behave and how to make them reliable.</p>
+    <div class="hero-links">
+      <a href="/work/">Explore my work <span aria-hidden="true">↗</span></a>
+      <a href="/cv/">View CV <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/zvwgvx" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="hero-context">
+      <p><span class="context-label">Affiliations</span><a href="https://sentialab.org" target="_blank" rel="noreferrer">SENTIA Lab ↗</a> · <a href="https://github.com/RiFT-Research" target="_blank" rel="noreferrer">RiFT Research ↗</a></p>
+      <p><span class="context-label">Current interests</span>Cognitive architectures, agent systems, security and distributed infrastructure</p>
+    </div>
+  </section>
+
+  <section class="content-section" aria-labelledby="selected-work">
+    <div class="section-heading">
+      <h2 id="selected-work"><span class="section-index">01 /</span> Selected work</h2>
+      <a href="/work/" class="text-link">All projects <span aria-hidden="true">↗</span></a>
+    </div>
+    <ProjectList projects={selectedProjects} />
+  </section>
+
+  <section class="content-section" aria-labelledby="notes-heading">
+    <div class="section-heading">
+      <h2 id="notes-heading"><span class="section-index">02 /</span> Research & engineering notes</h2>
+      <a href="/writing/" class="text-link">Writing <span aria-hidden="true">↗</span></a>
+    </div>
+    <a class="note-teaser" href="/writing/about-this-notebook/" style="display:block;color:inherit">
+      <strong>About this notebook <span aria-hidden="true">↗</span></strong>
+      <p>Where I plan to document architecture decisions, research questions, implementation notes and experiments. No fabricated publications or results.</p>
+    </a>
+  </section>
+
+  <section class="content-section" aria-labelledby="approach-heading">
+    <div class="section-heading">
+      <h2 id="approach-heading"><span class="section-index">03 /</span> Approach</h2>
+    </div>
+    <p class="section-copy">I prefer simple interfaces, inspectable systems and precise documentation. A research direction is not the same thing as a validated result; an implementation milestone is not a production release. This site aims to make those distinctions clear.</p>
+  </section>
+</BaseLayout>
