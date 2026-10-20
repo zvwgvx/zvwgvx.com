@@ -28,8 +28,8 @@ export const honors: Honor[] = [
   {
     period: "2026-09",
     category: "Award",
-    title: "First Prize — Provincial Informatics Team Selection for VOI 2026",
-    detail: "First Prize in the provincial excellent-student informatics team selection."
+    title: "First Prize — Provincial Informatics Excellent Student Competition (VOI Team Selection)",
+    detail: "Annual provincial Informatics competition, which also serves as the VOI team selection. First Prize in September 2026."
   },
   {
     period: "2026-08",
@@ -60,7 +60,8 @@ export const honors: Honor[] = [
   {
     period: "2025-09",
     category: "Award",
-    title: "Consolation Prize — Provincial Excellent Student Competition (Informatics) 2025"
+    title: "Consolation Prize — Provincial Informatics Excellent Student Competition (VOI Team Selection)",
+    detail: "The same annual provincial Informatics competition and VOI team selection. Consolation Prize in September 2025."
   },
   {
     period: "",

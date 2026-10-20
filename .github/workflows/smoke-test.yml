@@ -46,7 +46,8 @@ jobs:
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "codeforces.com/profile/zvwg.vx"
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Sep 2025"
           curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Nov 2025"
-          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Provincial Informatics Team Selection for VOI 2026"
+          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "First Prize — Provincial Informatics Excellent Student Competition (VOI Team Selection)"
+          curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Consolation Prize — Provincial Informatics Excellent Student Competition (VOI Team Selection)"
       - name: Install Chromium
         run: npx --yes playwright@1.56.1 install chromium --with-deps
       - name: Capture desktop and mobile previews
