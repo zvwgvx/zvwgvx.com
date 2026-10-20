@@ -26,11 +26,10 @@ jobs:
             fi
             sleep 1
           done
-          routes=("/" "/work/" "/work/aelia/" "/work/rift/" "/work/lattice/" "/work/9router/" "/work/opusmc/" "/writing/" "/writing/about-this-notebook/" "/about/" "/cv/" "/404")
+          routes=("/" "/work/" "/work/aelia/" "/work/rift/" "/work/lattice/" "/work/9router/" "/work/opusmc/" "/writing/" "/writing/about-this-notebook/" "/about/" "/cv/")
           for route in "${routes[@]}"; do
             code=$(curl -s -o /tmp/website-response.html -w "%{http_code}" "http://127.0.0.1:4321${route}")
             expected=200
-            if [ "$route" = "/404" ]; then expected=404; fi
             if [ "$code" != "$expected" ]; then
               echo "FAIL $route: HTTP $code, expected $expected"
               cat /tmp/astro-preview.log
@@ -38,6 +37,8 @@ jobs:
             fi
             echo "PASS $route: HTTP $code"
           done
+          test -f dist/404.html
+          grep -q "Page not found" dist/404.html
           curl -fsS http://127.0.0.1:4321/ | grep -q "Giang Truong Vu"
           curl -fsS http://127.0.0.1:4321/work/aelia/ | grep -q "Cognitive architecture"
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Curriculum vitae"
