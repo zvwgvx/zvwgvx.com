@@ -30,7 +30,7 @@ npm run preview:cloudflare
 
 The project uses **Workers Static Assets**, configured in `wrangler.toml`:
 
-- Worker name: `zvwgvx-site`
+- Worker name: `zvwgvx-com`
 - Assets: `dist/`
 - Static page routing: Astro directory indexes with trailing slashes
 - Missing pages: custom `404.html`
@@ -41,7 +41,7 @@ The project uses **Workers Static Assets**, configured in `wrangler.toml`:
 1. Add `zvwgvx.com` as a Cloudflare DNS zone and ensure the zone becomes **Active**. If registered elsewhere, update its nameservers with your registrar first.
 2. In [Cloudflare Workers & Pages](https://dash.cloudflare.com/?to=/:account/workers-and-pages), choose **Create application** and connect **GitHub**.
 3. Select the `zvwgvx/zvwgvx.com` repository and production branch `main`.
-4. Use `zvwgvx-site` as the Worker name, matching `wrangler.toml`.
+4. Use `zvwgvx-com` as the Worker name, matching `wrangler.toml`.
 5. Use these build settings:
    - Root directory: repository root
    - Build command: `npm run build`
