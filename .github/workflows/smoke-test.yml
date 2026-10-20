@@ -26,7 +26,7 @@ jobs:
             fi
             sleep 1
           done
-          routes=("/" "/work/" "/work/aelia/" "/work/rift/" "/work/lattice/" "/work/9router/" "/work/opusmc/" "/writing/" "/writing/about-this-notebook/" "/about/" "/cv/")
+          routes=("/" "/work/" "/work/aelia/" "/work/rift/" "/work/lattice/" "/work/9router/" "/work/opusmc/" "/writing/" "/writing/about-this-notebook/" "/about/" "/cv/" "/updates/")
           for route in "${routes[@]}"; do
             code=$(curl -s -o /tmp/website-response.html -w "%{http_code}" "http://127.0.0.1:4321${route}")
             expected=200
@@ -39,9 +39,10 @@ jobs:
           done
           test -f dist/404.html
           grep -q "Page not found" dist/404.html
-          curl -fsS http://127.0.0.1:4321/ | grep -q "Giang Truong Vu"
+          curl -fsS http://127.0.0.1:4321/ | grep -q "Vu Truong Giang"
           curl -fsS http://127.0.0.1:4321/work/aelia/ | grep -q "Cognitive architecture"
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Curriculum vitae"
+          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Provincial Informatics Team Selection Exam"
       - name: Install Chromium
         run: npx --yes playwright@1.56.1 install chromium --with-deps
       - name: Capture desktop and mobile previews
