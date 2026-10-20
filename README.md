@@ -79,16 +79,25 @@ Project descriptions are in `src/data/projects.ts`. Layout, navigation and metad
 
 ## Updating the homepage
 
-The **Latest updates** section is powered by `src/data/updates.ts`. Add a new object at the **start** of the `updates` array to display it above the older entries. The homepage shows the first three; `/updates/` shows the full list.
+The **Latest updates** section is powered by `src/data/updates.ts`.
+
+- Add awards and distinctions to the `honors` array. They automatically appear in the CV and dated news timeline.
+- Add other news and project milestones to `announcements` with a date and category.
+- All updates are sorted newest first. The homepage displays the first three, and `/updates/` displays the full timeline.
+- The default site theme is dark, with an optional light-mode switch and a stored visitor preference.
+
+Example:
 
 ```ts
 {
-  period: "2026-11-15",
-  category: "Award",
-  title: "Your verified achievement title",
-  summary: "An optional one-sentence explanation",
-  url: "https://example.org/result"
+  period: "2026-11",
+  category: "Research",
+  title: "A research milestone",
+  summary: "Optional summary",
+  url: "/work/aelia/"
 }
 ```
 
-Use only real dates when known; otherwise use a year such as `2026`. Supported categories are `Award`, `Selection`, `Research`, `Engineering`, `Writing` and `Announcement`. The CV honors list is stored in `honors` in the same file. Changes pushed to `main` can automatically trigger Cloudflare Workers Builds once the Cloudflare GitHub integration is enabled.
+Dates use `YYYY-MM` format. The UI displays dates as, for example, `Nov 2026`, without inventing an exact day. Supported categories are `Award`, `Selection`, `Distinction`, `Research`, `Engineering`, `Writing`, and `Announcement`.
+
+The Codeforces link uses the distinct username `zvwg.vx`, not the GitHub handle `zvwgvx`. Updates pushed to `main` can automatically deploy through Cloudflare Workers Builds when enabled.

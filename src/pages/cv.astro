@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { honors } from "../data/updates";
+import { formatPeriod, honors } from "../data/updates";
 ---
 
 <BaseLayout title="CV — Vu Truong Giang" description="Curriculum vitae of Vu Truong Giang: student researcher focused on cognitive AI, autonomous agents, security tooling and systems engineering.">
@@ -11,6 +11,7 @@ import { honors } from "../data/updates";
     <div class="inline-links">
       <a href="https://github.com/zvwgvx" target="_blank" rel="noreferrer">GitHub ↗</a>
       <a href="https://www.linkedin.com/in/zvwgvx" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      <a href="https://codeforces.com/profile/zvwg.vx" target="_blank" rel="noreferrer">Codeforces @zvwg.vx ↗</a>
       <a href="https://sentialab.org" target="_blank" rel="noreferrer">SENTIA Lab ↗</a>
     </div>
     <div class="cv-actions">
@@ -68,8 +69,8 @@ import { honors } from "../data/updates";
     <h2>Honors & distinctions</h2>
     {honors.map((honor) => (
       <div class="cv-entry">
-        <span class="cv-key">{honor.period || "Distinction"}</span>
-        <div class="cv-value"><strong>{honor.title}</strong>{honor.detail && <p>{honor.detail}</p>}</div>
+        <span class="cv-key">{formatPeriod(honor.period)}</span>
+        <div class="cv-value"><strong>{honor.url ? <a href={honor.url} target="_blank" rel="noreferrer">{honor.title} ↗</a> : honor.title}</strong>{honor.detail && <p>{honor.detail}</p>}</div>
       </div>
     ))}
   </section>

@@ -1,5 +1,5 @@
 ---
-import type { Update } from "../data/updates";
+import { formatPeriod, type Update } from "../data/updates";
 
 interface Props {
   items: Update[];
@@ -12,7 +12,7 @@ const { items } = Astro.props;
   {items.map((item, index) => (
     <article class:list={["update-row", { "update-row-featured": index === 0 }]}>
       <div class="update-meta">
-        <span class="update-period">{item.period}</span>
+        <time class="update-period" datetime={item.period}>{formatPeriod(item.period)}</time>
         <span class="update-category">{item.category}</span>
       </div>
       <div class="update-main">
