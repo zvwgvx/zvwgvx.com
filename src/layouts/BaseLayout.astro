@@ -7,14 +7,15 @@ interface Props {
 }
 
 const {
-  title = "Giang Truong Vu — AI Research & Systems Engineering",
-  description = "Personal website of Giang Truong Vu (Zang Vu / @zvwgvx). AI research, backend engineering, security and distributed systems."
+  title = "Vu Truong Giang — AI Research & Systems Engineering",
+  description = "Personal website of Vu Truong Giang (Zang Vu / @zvwgvx). AI research, backend engineering, security and distributed systems."
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
 const current = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
 const navigation = [
   { href: "/work/", label: "Work" },
+  { href: "/updates/", label: "Updates" },
   { href: "/writing/", label: "Writing" },
   { href: "/about/", label: "About" },
   { href: "/cv/", label: "CV" }
@@ -71,7 +72,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
       <footer class="site-footer shell">
         <div class="footer-rule"></div>
         <div class="footer-content">
-          <p>© {new Date().getFullYear()} Giang Truong Vu <span class="footer-muted">· @zvwgvx</span></p>
+          <p>© {new Date().getFullYear()} Vu Truong Giang <span class="footer-muted">· @zvwgvx</span></p>
           <div class="footer-links">
             <a href="https://github.com/zvwgvx" target="_blank" rel="noreferrer">GitHub ↗</a>
             <a href="https://sentialab.org" target="_blank" rel="noreferrer">SENTIA Lab ↗</a>

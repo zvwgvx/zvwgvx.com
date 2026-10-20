@@ -22,16 +22,16 @@ export const projects: Project[] = [
     category: "AI research",
     affiliation: "SENTIA Lab",
     phase: "Research / work in progress",
-    description: "An experimental cognitive architecture for persistent autonomous digital entities.",
+    description: "Research prototype exploring persistent autonomous digital entities with identity, affect and social cognition.",
     introduction: [
-      "AELIA explores agents with persistent memory, evolving beliefs, internal state, emotion-like processes and social interaction. The research question is how these components can be organized into a coherent, long-lived artificial entity.",
-      "The current implementation is a Python cognitive kernel. Its interfaces and architecture are still changing, and no production release is available."
+      "AELIA explores persistent autonomous digital entities with continuity of identity, self-directed goals and experience-driven behavior. Its cognitive architecture investigates perception, episodic/autobiographical memory, belief/world/self models, affective appraisal and deliberation.",
+      "Research areas also include simulated affect, social relationships, Theory of Mind and computational models of consciousness-like behavior. The Python cognitive kernel is a research prototype; no claim is made about artificial consciousness or production readiness."
     ],
     areas: [
       "Persistent memory and belief formation",
       "Cognitive state and agent continuity",
       "Affective and social simulation",
-      "Evaluation of long-lived autonomous agents"
+      "Theory of Mind, social relationships and long-lived autonomy"
     ],
     stack: ["Python", "Cognitive architectures", "Agent systems", "State & memory"],
     repository: "https://github.com/sentialab-org/AELIA",
@@ -43,11 +43,11 @@ export const projects: Project[] = [
     label: "Agentic security systems",
     category: "Security / AI",
     affiliation: "RiFT Research · SENTIA Lab",
-    phase: "Early development",
-    description: "Research and engineering around AI-assisted security assessment, isolated execution and composable tooling.",
+    phase: "Active engineering",
+    description: "Agent-assisted black-box web/API security research with MCP tooling, remote bridges and isolated execution.",
     introduction: [
-      "RiFT is being designed as an extensible environment for security research with an emphasis on agent orchestration, controlled sandbox execution and tools exposed through consistent interfaces.",
-      "Current areas of interest include web and backend assessment, bridge connectivity and structured tool integration. The public repository is at an early stage; these are directions rather than shipped capabilities."
+      "RiFT is an agent-assisted black-box web/API security research framework. Work centers on integrating MCP-based tools, remote bridges, scoped execution and isolated sandboxes.",
+      "The project is under active engineering. Features and integration boundaries continue to evolve and should not be interpreted as a stable security product."
     ],
     areas: [
       "Agent orchestration and tool selection",
@@ -65,17 +65,17 @@ export const projects: Project[] = [
     label: "Distributed infrastructure",
     category: "Systems",
     affiliation: "SENTIA Lab",
-    phase: "Linux-first pilot",
-    description: "A cross-platform distributed resource network built around node identity, explicit consent and verifiable workloads.",
+    phase: "Early-stage",
+    description: "Exploring peer-to-peer networking and lightweight coordination for heterogeneous edge and compute nodes.",
     introduction: [
-      "Lattice investigates the coordination of machines and workloads across heterogeneous systems. The project emphasizes authenticated node identities, signed control messages, explicit owner selection and resource boundaries enforced on the participating node.",
-      "The repository documents a Linux-first ownership pilot. Other platform acceptance work remains ongoing, so the project should not be interpreted as a generally available stable release."
+      "Lattice is an early-stage distributed-systems project exploring peer-to-peer connectivity and coordination across heterogeneous edge and compute nodes.",
+      "The project investigates networking and coordination mechanisms; a stable general-availability release is not claimed."
     ],
     areas: [
-      "Node identity and signed protocols",
-      "Network coordination and overlay connectivity",
-      "Distributed resource and workload policies",
-      "Artifact verification and local consent"
+      "Peer-to-peer networking",
+      "Coordination across edge and compute nodes",
+      "Distributed systems and connectivity",
+      "Cross-platform systems design"
     ],
     stack: ["Rust", "TypeScript", "P2P networking", "Distributed systems"],
     repository: "https://github.com/sentialab-org/lattice",
@@ -88,14 +88,14 @@ export const projects: Project[] = [
     category: "Engineering",
     affiliation: "Open-source work",
     phase: "Open source",
-    description: "Work with tooling for routing AI coding requests across models and providers.",
+    description: "Open-source work on Gemini-to-OpenAI response handling in AI routing tooling.",
     introduction: [
-      "9Router provides a routing layer for AI development tools, with provider interoperability and fallback behavior among its areas of focus.",
+      "9Router is an AI model-routing project. My selected contribution concerns Gemini-to-OpenAI response handling.",
       "This page points to my public repository for the project. The upstream ecosystem and its contributors should be credited separately; a repository link does not imply sole authorship."
     ],
     areas: [
       "Interoperability between AI model APIs",
-      "Routing and fallback logic",
+      "Gemini-to-OpenAI response handling",
       "Developer-oriented infrastructure"
     ],
     stack: ["JavaScript", "Node.js", "AI tooling"],
@@ -104,21 +104,23 @@ export const projects: Project[] = [
   },
   {
     slug: "opusmc",
-    name: "OpusMC",
-    label: "Side project",
+    name: "Opus Client",
+    label: "Client & runtime engineering",
     category: "Engineering",
-    affiliation: "Independent / side project",
+    affiliation: "OpusMC",
     phase: "Side project",
-    description: "Exploratory Minecraft client and related engineering work.",
+    description: "Performance-oriented Minecraft client and runtime engineering, including Forge, rendering, input and networking.",
     introduction: [
-      "OpusMC is a smaller side project outside my primary AI and systems research focus.",
-      "Details and source repositories are maintained under the project's GitHub organization."
+      "Opus Client is a performance-oriented Minecraft client/runtime engineering project. Work involves Java/Forge integration, rendering, input and networking infrastructure, and modular design.",
+      "It is a separate engineering track from my cognitive AI and security research work."
     ],
     areas: [
-      "Client-side software engineering",
-      "Tooling and experimental development"
+      "Java / Forge integration",
+      "Rendering and input systems",
+      "Networking infrastructure",
+      "Modular client architecture and performance"
     ],
-    stack: ["Software engineering", "Client development"],
+    stack: ["Java", "Forge", "Client runtime", "Networking"],
     repository: "https://github.com/project-opusmc",
     selected: false
   }

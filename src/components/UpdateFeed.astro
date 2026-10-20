@@ -1,0 +1,26 @@
+---
+import type { Update } from "../data/updates";
+
+interface Props {
+  items: Update[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="updates-list">
+  {items.map((item, index) => (
+    <article class:list={["update-row", { "update-row-featured": index === 0 }]}>
+      <div class="update-meta">
+        <span class="update-period">{item.period}</span>
+        <span class="update-category">{item.category}</span>
+      </div>
+      <div class="update-main">
+        <h3>
+          {item.url ? <a href={item.url} target={item.url.startsWith("http") ? "_blank" : undefined} rel={item.url.startsWith("http") ? "noreferrer" : undefined}>{item.title} <span aria-hidden="true">↗</span></a> : item.title}
+        </h3>
+        {item.summary && <p>{item.summary}</p>}
+      </div>
+    </article>
+  ))}
+</div>

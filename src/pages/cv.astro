@@ -1,73 +1,112 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { honors } from "../data/updates";
 ---
 
-<BaseLayout title="CV — Giang Truong Vu" description="Curriculum vitae of Giang Truong Vu: AI research, backend engineering and systems projects.">
+<BaseLayout title="CV — Vu Truong Giang" description="Curriculum vitae of Vu Truong Giang: student researcher focused on cognitive AI, autonomous agents, security tooling and systems engineering.">
   <header class="page-intro">
     <span class="eyebrow">Curriculum vitae</span>
-    <h1>Giang Truong Vu</h1>
-    <p>Zang Vu / @zvwgvx · AI Research · Backend & Systems Engineering</p>
+    <h1>Vu Truong Giang</h1>
+    <p>Zang Vu · Student Researcher · Cognitive AI & Systems Engineering</p>
+    <div class="inline-links">
+      <a href="https://github.com/zvwgvx" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/zvwgvx" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      <a href="https://sentialab.org" target="_blank" rel="noreferrer">SENTIA Lab ↗</a>
+    </div>
     <div class="cv-actions">
       <button class="secondary-button" data-print-cv type="button">Print / Save as PDF ↗</button>
     </div>
   </header>
 
   <section class="section-block">
-    <h2>Interests</h2>
-    <p>Cognitive AI, autonomous agents, cybersecurity, backend infrastructure and distributed systems.</p>
+    <h2>Research profile</h2>
+    <p>Informatics-specialized student researching autonomous digital entities and computational models of cognition, with an emphasis on persistent identity, simulated affect, social behavior, and long-term agency. Also develops security tooling and systems software.</p>
   </section>
 
   <section class="section-block">
     <h2>Education</h2>
     <div class="cv-entry">
-      <span class="cv-key">2025 – 2028</span>
-      <div class="cv-value"><strong>Luong Van Tuy High School for the Gifted</strong><p>Computer Science · Algorithms & Competitive Programming</p></div>
+      <span class="cv-key">2025–2028 (expected)</span>
+      <div class="cv-value"><strong>Luong Van Tuy Gifted High School</strong><p>Specialization: Informatics · Ninh Binh, Vietnam</p></div>
     </div>
   </section>
 
   <section class="section-block">
-    <h2>Research & engineering</h2>
+    <h2>Research & engineering projects</h2>
     <div class="cv-entry">
       <span class="cv-key">SENTIA Lab</span>
-      <div class="cv-value"><strong>AELIA — Cognitive architecture</strong><p>Experimental long-lived AI agent architecture involving persistent memory, evolving beliefs, internal state and social dynamics.</p></div>
+      <div class="cv-value">
+        <strong><a href="/work/aelia/">AELIA</a> — Autonomous cognitive AI</strong>
+        <p>Research prototype exploring a persistent, autonomous digital entity with continuity of identity, self-directed goals and experience-driven behavior.</p>
+        <p>Python cognitive kernel: perception, episodic/autobiographical memory, belief/world/self models, appraisal, deliberation and bounded autonomy. Research into consciousness-like behavior, simulated affect, relationships and Theory of Mind.</p>
+      </div>
     </div>
     <div class="cv-entry">
-      <span class="cv-key">RiFT Research</span>
-      <div class="cv-value"><strong>RiFT — Security agent infrastructure</strong><p>Early-stage exploration of AI-assisted security assessment, sandboxed execution, bridge connectivity and tool orchestration.</p></div>
+      <span class="cv-key">RiFT Research · SENTIA Lab</span>
+      <div class="cv-value">
+        <strong><a href="/work/rift/">RiFT</a> — Security framework</strong>
+        <p>Active engineering on an agent-assisted black-box web/API security research framework, integrating MCP-based tools, remote bridges, scoped execution and isolated sandboxes.</p>
+      </div>
     </div>
     <div class="cv-entry">
       <span class="cv-key">SENTIA Lab</span>
-      <div class="cv-value"><strong>Lattice — Distributed systems</strong><p>Resource-network engineering, identity and signed protocols, policy controls and cross-platform infrastructure.</p></div>
-    </div>
-  </section>
-
-  <section class="section-block">
-    <h2>Other technical work</h2>
-    <div class="cv-entry">
-      <span class="cv-key">Open source</span>
-      <div class="cv-value"><strong>9Router</strong><p>AI routing and developer-tooling related work.</p></div>
+      <div class="cv-value">
+        <strong><a href="/work/lattice/">Lattice</a> — Distributed systems</strong>
+        <p>Early-stage exploration of peer-to-peer networking and lightweight coordination across heterogeneous edge and compute nodes.</p>
+      </div>
     </div>
     <div class="cv-entry">
-      <span class="cv-key">Side project</span>
-      <div class="cv-value"><strong>OpusMC</strong><p>Experimental client development and related software engineering.</p></div>
+      <span class="cv-key">OpusMC</span>
+      <div class="cv-value">
+        <strong><a href="/work/opusmc/">Opus Client</a> — Client & runtime engineering</strong>
+        <p>Performance-oriented Minecraft client/runtime systems, including Forge integration, rendering, input and networking infrastructure, and modular architecture.</p>
+      </div>
     </div>
   </section>
 
   <section class="section-block">
-    <h2>Technical skills</h2>
-    <p><strong>Languages:</strong> Python, Rust, TypeScript, JavaScript, Node.js ecosystem.</p>
-    <p><strong>Engineering:</strong> Backend APIs, agent architectures, tool integration, Linux, networking, distributed systems, sandboxing and security-oriented development.</p>
+    <h2>Honors & distinctions</h2>
+    {honors.map((honor) => (
+      <div class="cv-entry">
+        <span class="cv-key">{honor.period || "Distinction"}</span>
+        <div class="cv-value"><strong>{honor.title}</strong>{honor.detail && <p>{honor.detail}</p>}</div>
+      </div>
+    ))}
   </section>
 
   <section class="section-block">
-    <h2>Links</h2>
-    <div class="inline-links">
-      <a href="https://github.com/zvwgvx" target="_blank" rel="noreferrer">GitHub ↗</a>
-      <a href="https://sentialab.org" target="_blank" rel="noreferrer">SENTIA Lab ↗</a>
-      <a href="https://github.com/RiFT-Research" target="_blank" rel="noreferrer">RiFT Research ↗</a>
-      <a href="/work/">Projects ↗</a>
+    <h2>Technical background</h2>
+    <div class="cv-entry">
+      <span class="cv-key">Languages & tooling</span>
+      <div class="cv-value">Python · C/C++ · Rust · Java · JavaScript · Node.js · Git · SQLite</div>
+    </div>
+    <div class="cv-entry">
+      <span class="cv-key">ML / LLM systems</span>
+      <div class="cv-value">PyTorch · Transformers · LLM integration · embeddings / retrieval · synthetic data</div>
+    </div>
+    <div class="cv-entry">
+      <span class="cv-key">Cognitive AI research</span>
+      <div class="cv-value">Autonomous-agent loops · episodic memory · self/world/belief models · affect/appraisal · social cognition</div>
+    </div>
+    <div class="cv-entry">
+      <span class="cv-key">Backend / infrastructure</span>
+      <div class="cv-value">Linux · Docker · HTTP APIs · event-driven services · networking · P2P architecture</div>
+    </div>
+    <div class="cv-entry">
+      <span class="cv-key">Security / agent tooling</span>
+      <div class="cv-value">MCP integrations · black-box web/API research · sandbox isolation · remote bridge engineering</div>
+    </div>
+    <div class="cv-entry">
+      <span class="cv-key">Runtime / quality</span>
+      <div class="cv-value">Java / Forge integration · rendering / input / networking · performance optimization · pytest · mypy · Ruff</div>
     </div>
   </section>
+
+  <section class="section-block">
+    <h2>Selected open-source work</h2>
+    <p>Open WebUI · <a href="/work/9router/">9Router</a> (Gemini-to-OpenAI response handling) · high-quality 4,000-sample Vietnamese teen/Gen Z synthetic dialogue corpus.</p>
+  </section>
+
   <script>
     document.querySelector("[data-print-cv]")?.addEventListener("click", () => window.print());
   </script>

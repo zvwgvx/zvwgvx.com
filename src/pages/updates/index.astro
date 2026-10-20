@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import UpdateFeed from "../../components/UpdateFeed.astro";
+import { updates } from "../../data/updates";
+---
+
+<BaseLayout title="Updates — Vu Truong Giang" description="Updates, awards, research milestones and engineering notes from Vu Truong Giang.">
+  <header class="page-intro">
+    <span class="eyebrow">News / milestones</span>
+    <h1>Updates</h1>
+    <p>A running record of awards, selections, research milestones, engineering progress and writing. New entries appear here and on the homepage.</p>
+  </header>
+
+  <section class="content-section" aria-labelledby="updates-all">
+    <div class="section-heading">
+      <h2 id="updates-all"><span class="section-index">01 /</span> Highlights & news</h2>
+      <a class="text-link" href="/cv/">Honors in CV <span aria-hidden="true">↗</span></a>
+    </div>
+    <UpdateFeed items={updates} />
+    <p class="updates-footnote">Earlier distinctions are labeled by year because the CV does not specify their exact dates. Items with the same year are not necessarily in chronological order.</p>
+  </section>
+</BaseLayout>

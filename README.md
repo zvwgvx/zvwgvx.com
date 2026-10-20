@@ -1,6 +1,6 @@
 # zvwgvx.com
 
-Personal research and engineering website of Giang Truong Vu (Zang Vu / @zvwgvx).
+Personal research and engineering website of Vu Truong Giang (Zang Vu / @zvwgvx).
 
 Astro + TypeScript + MDX, deployed as pre-rendered static assets on **Cloudflare Workers**. No server-side Worker code or Cloudflare Astro adapter is required.
 
@@ -76,3 +76,19 @@ The GitHub Actions Build workflow validates the same Wrangler configuration with
 ## Content
 
 Project descriptions are in `src/data/projects.ts`. Layout, navigation and metadata live in `src/layouts/BaseLayout.astro`. Global design tokens are in `src/styles/global.css`.
+
+## Updating the homepage
+
+The **Latest updates** section is powered by `src/data/updates.ts`. Add a new object at the **start** of the `updates` array to display it above the older entries. The homepage shows the first three; `/updates/` shows the full list.
+
+```ts
+{
+  period: "2026-11-15",
+  category: "Award",
+  title: "Your verified achievement title",
+  summary: "An optional one-sentence explanation",
+  url: "https://example.org/result"
+}
+```
+
+Use only real dates when known; otherwise use a year such as `2026`. Supported categories are `Award`, `Selection`, `Research`, `Engineering`, `Writing` and `Announcement`. The CV honors list is stored in `honors` in the same file. Changes pushed to `main` can automatically trigger Cloudflare Workers Builds once the Cloudflare GitHub integration is enabled.

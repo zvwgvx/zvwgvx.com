@@ -152,7 +152,24 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .inline-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 20px; }
 .inline-links a { font-size: 13px; }
 
+
+.updates-list { border-top: 1px solid var(--line); }
+.update-row { display: grid; grid-template-columns: 150px 1fr; gap: 22px; padding: 19px 0 20px; border-bottom: 1px solid var(--line); }
+.update-meta { display: flex; flex-direction: column; align-items: start; gap: 3px; padding-top: 2px; }
+.update-period { color: var(--soft); font-size: 11px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+.update-category { color: var(--accent); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; font-weight: 650; }
+.update-main h3 { font-size: 14px; line-height: 1.55; letter-spacing: -.015em; font-weight: 590; margin: 0; max-width: 610px; }
+.update-main h3 a { color: var(--text); }
+.update-main h3 a:hover { color: var(--accent); }
+.update-main p { margin: 6px 0 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+.update-row-featured .update-main h3 { font-weight: 660; }
+.updates-footnote { color: var(--soft); font-size: 11px; line-height: 1.7; margin: 21px 0 0; }
+
 @media (max-width: 700px) {
+  .update-row { grid-template-columns: 1fr; gap: 7px; padding: 17px 0; }
+  .update-meta { flex-direction: row; align-items: baseline; gap: 12px; }
+  .site-navigation { gap: 10px; }
+  .site-navigation .nav-external { display: none; }
   .shell { width: min(100% - 36px, 870px); }
   .site-header { min-height: 70px; flex-wrap: wrap; column-gap: 12px; row-gap: 0; padding-top: 15px; padding-bottom: 13px; }
   .identity-domain { display: none; }
