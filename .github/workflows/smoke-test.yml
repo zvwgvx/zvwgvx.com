@@ -58,7 +58,12 @@ jobs:
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Third Prize — Northern Vietnam Youth Informatics Contest"
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Second Prize — Provincial Youth Informatics Contest"
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Second Prize — District-Level Mathematics Excellent Student Competition"
-          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Year unconfirmed"
+          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Mar 2022"
+          curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Mar 2022"
+          if curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Year unconfirmed"; then
+            echo "Math award must show its confirmed date"
+            exit 1
+          fi
           curl -fsS http://127.0.0.1:4321/updates/ | grep -q "2022"
           if curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Academic year 2022–2023"; then
             echo "CV must not contain inferred academic year for past awards"

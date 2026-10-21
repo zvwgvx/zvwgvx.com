@@ -82,10 +82,10 @@ export const honors: Honor[] = [
     detail: "Le Hong Phong Secondary School."
   },
   {
-    period: "",
+    period: "2022-03",
     category: "Award",
     title: "Second Prize — District-Level Mathematics Excellent Student Competition",
-    detail: "Achieved while attending Le Hong Phong Secondary School (Grade 7). The competition year has not been confirmed."
+    detail: "Awarded in March 2022 while attending Le Hong Phong Secondary School."
   },
   {
     period: "",
