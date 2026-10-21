@@ -73,7 +73,7 @@ import { formatPeriod, honors } from "../data/updates";
     <h2>Honors & distinctions</h2>
     {honors.map((honor) => (
       <div class="cv-entry">
-        <span class="cv-key">{formatPeriod(honor.period)}</span>
+        <span class="cv-key">{honor.category === "Distinction" && !honor.period ? "Ranking" : formatPeriod(honor.period)}</span>
         <div class="cv-value"><strong>{honor.url ? <a href={honor.url} target="_blank" rel="noreferrer">{honor.title} ↗</a> : honor.title}</strong>{honor.detail && <p>{honor.detail}</p>}</div>
       </div>
     ))}
