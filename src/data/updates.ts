@@ -6,6 +6,7 @@ export type Honor = {
   title: string;
   detail?: string;
   url?: string;
+  inTimeline?: boolean;
 };
 
 export type Update = {
@@ -17,57 +18,81 @@ export type Update = {
 };
 
 export function formatPeriod(period: string): string {
+  if (!period) return "Year unconfirmed";
+  if (/^\d{4}$/.test(period)) return period;
   const match = /^(\d{4})-(\d{2})$/.exec(period);
-  if (!match) return period || "Undated";
+  if (!match) return period;
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const month = months[Number(match[2]) - 1];
   return month ? `${month} ${match[1]}` : period;
 }
 
+const voiSelection = "Provincial Team Selection Exam for the National Informatics Olympiad (VOI)";
+const voiContext = "Annual provincial Informatics competition that also selects the provincial team for the national VOI contest.";
+
 export const honors: Honor[] = [
   {
     period: "2026-09",
     category: "Award",
-    title: "First Prize — Provincial Team Selection Exam for the National Informatics Olympiad (VOI)",
-    detail: "Annual provincial exam used to select the provincial team for the national Informatics Olympiad (VOI); it is also the provincial excellent-student competition."
+    title: `First Prize — ${voiSelection}`,
+    detail: voiContext
   },
   {
     period: "2026-08",
     category: "Award",
-    title: "Silver Medal — Northern Mountainous & Midland Region Informatics Olympiad 2026"
+    title: "Silver Medal — Northern Mountainous & Midland Region Informatics Olympiad"
   },
   {
     period: "2026-06",
     category: "Award",
-    title: "Second Prize — Northern Vietnam Informatics Summer Camp 2026"
+    title: "Second Prize — Northern Vietnam Informatics Summer Camp"
   },
   {
     period: "2026-05",
     category: "Selection",
-    title: "National Selection Test Participant — Vietnam IOAI 2026"
+    title: "National Selection Test Participant — Vietnam IOAI"
   },
   {
     period: "2026-04",
     category: "Award",
-    title: "Bronze Medal — Northern & Coastal Area Informatics Olympiad 2026"
+    title: "Bronze Medal — Northern & Coastal Area Informatics Olympiad"
   },
   {
     period: "2025-11",
     category: "Award",
-    title: "Honorable Mention — ICPC Vietnam National 2025",
-    detail: "Team distinction at the 2025 ICPC Vietnam National Programming Contest, 8–9 November 2025."
+    title: "Honorable Mention — ICPC Vietnam National",
+    detail: "Team distinction at the ICPC Vietnam National Programming Contest, 8–9 November 2025."
   },
   {
     period: "2025-09",
     category: "Award",
-    title: "Consolation Prize — Provincial Team Selection Exam for the National Informatics Olympiad (VOI)",
-    detail: "The same annual provincial team-selection exam for the national Informatics Olympiad (VOI), also recognized as the provincial excellent-student competition."
+    title: `Consolation Prize — ${voiSelection}`,
+    detail: voiContext
+  },
+  {
+    period: "2025",
+    category: "Award",
+    title: "Third Prize — Northern Vietnam Youth Informatics Contest",
+    detail: "Le Hong Phong Secondary School."
+  },
+  {
+    period: "2022",
+    category: "Award",
+    title: "Second Prize — Provincial Youth Informatics Contest",
+    detail: "Le Hong Phong Secondary School."
+  },
+  {
+    period: "",
+    category: "Award",
+    title: "Second Prize — District-Level Mathematics Excellent Student Competition",
+    detail: "Achieved while attending Le Hong Phong Secondary School (Grade 7). The competition year has not been confirmed."
   },
   {
     period: "",
     category: "Distinction",
     title: "Codeforces Expert — @zvwg.vx",
-    url: "https://codeforces.com/profile/zvwg.vx"
+    url: "https://codeforces.com/profile/zvwg.vx",
+    inTimeline: false
   }
 ];
 
@@ -75,7 +100,7 @@ export const announcements: Update[] = [];
 
 export const updates: Update[] = [
   ...announcements,
-  ...honors.filter((honor) => honor.period).map((honor) => ({
+  ...honors.filter((honor) => honor.inTimeline !== false).map((honor) => ({
     period: honor.period,
     category: honor.category,
     title: honor.title,

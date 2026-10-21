@@ -81,7 +81,7 @@ Project descriptions are in `src/data/projects.ts`. Layout, navigation and metad
 
 The **Latest updates** section is powered by `src/data/updates.ts`.
 
-- Add awards and distinctions to the `honors` array. They automatically appear in the CV and dated news timeline.
+- Add awards and distinctions to the `honors` array. They automatically appear in the CV and the updates timeline; set `inTimeline: false` only for non-event distinctions, such as a current platform ranking.
 - Add other news and project milestones to `announcements` with a date and category.
 - All updates are sorted newest first. The homepage displays the first three, and `/updates/` displays the full timeline.
 - The default site theme is dark, with an optional light-mode switch and a stored visitor preference.
@@ -98,6 +98,6 @@ Example:
 }
 ```
 
-Dates use `YYYY-MM` format. The UI displays dates as, for example, `Nov 2026`, without inventing an exact day. Supported categories are `Award`, `Selection`, `Distinction`, `Research`, `Engineering`, `Writing`, and `Announcement`.
+Dates use `YYYY-MM` when the month is known, `YYYY` for year-only records, or an empty period when the year is unconfirmed. The UI never invents a month or year. Supported categories are `Award`, `Selection`, `Distinction`, `Research`, `Engineering`, `Writing`, and `Announcement`.
 
 The Codeforces link uses the distinct username `zvwg.vx`, not the GitHub handle `zvwgvx`. Updates pushed to `main` can automatically deploy through Cloudflare Workers Builds when enabled.

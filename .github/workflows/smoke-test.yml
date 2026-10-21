@@ -52,6 +52,18 @@ jobs:
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "codeforces.com/profile/zvwg.vx"
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Sep 2025"
           curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Nov 2025"
+          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Third Prize — Northern Vietnam Youth Informatics Contest"
+          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Second Prize — Provincial Youth Informatics Contest"
+          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Second Prize — District-Level Mathematics Excellent Student Competition"
+          curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Third Prize — Northern Vietnam Youth Informatics Contest"
+          curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Second Prize — Provincial Youth Informatics Contest"
+          curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Second Prize — District-Level Mathematics Excellent Student Competition"
+          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Year unconfirmed"
+          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "2022"
+          if curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Academic year 2022–2023"; then
+            echo "CV must not contain inferred academic year for past awards"
+            exit 1
+          fi
           curl -fsS http://127.0.0.1:4321/updates/ | grep -q "First Prize — Provincial Team Selection Exam for the National Informatics Olympiad (VOI)"
           curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Consolation Prize — Provincial Team Selection Exam for the National Informatics Olympiad (VOI)"
       - name: Install Chromium
