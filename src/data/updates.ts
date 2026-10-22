@@ -92,7 +92,8 @@ export const honors: Honor[] = [
     title: "Codeforces Expert — @zvwg.vx",
     url: "https://codeforces.com/profile/zvwg.vx"
   }
-].sort((a, b) => b.period.localeCompare(a.period));
+];
+honors.sort((a, b) => b.period.localeCompare(a.period));
 
 export const announcements: Update[] = [];
 
