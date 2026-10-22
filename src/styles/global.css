@@ -108,7 +108,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .detail-hero h1 { margin: 30px 0 4px; font-size: clamp(40px, 7vw, 62px); letter-spacing: -.055em; line-height: 1.1; font-weight: 650; }
 .detail-hero .detail-subtitle { font-size: 19px; margin: 7px 0 15px; color: var(--muted); }
 .detail-hero .detail-description { font-size: 15px; line-height: 1.8; margin: 0; max-width: 660px; }
-.detail-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; border-block: 1px solid var(--line); padding: 17px 0; margin-top: 34px; }
+.detail-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; border-block: 1px solid var(--line); padding: 17px 0; margin-top: 34px; }
 .detail-field-label { font-size: 10px; color: var(--soft); text-transform: uppercase; display: block; margin-bottom: 5px; }
 .detail-meta strong { font-size: 12px; font-weight: 550; line-height: 1.5; display: block; }
 .detail-section { max-width: 740px; padding: 34px 0; border-bottom: 1px solid var(--line); }

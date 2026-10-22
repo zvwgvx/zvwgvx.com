@@ -101,3 +101,9 @@ Example:
 Dates use `YYYY-MM` when the month is known, `YYYY` for year-only records, or an empty period when the year is unconfirmed. The UI never invents a month or year. Supported categories are `Award`, `Selection`, `Distinction`, `Research`, `Engineering`, `Writing`, and `Announcement`.
 
 The Codeforces link uses the distinct username `zvwg.vx`, not the GitHub handle `zvwgvx`. Updates pushed to `main` can automatically deploy through Cloudflare Workers Builds when enabled.
+
+## Editorial policy
+
+The portfolio describes enduring research directions and project scopes, not internal implementation progress. Avoid status badges, completed-feature checklists, release-stage claims, internal architecture inventories, and weekly progress reports. Do not imply that a research objective is a completed capability.
+
+Project descriptions and affiliations are defined in `src/data/projects.ts` and shared by Work and the CV. The updates feed in `src/data/updates.ts` is reserved for awards, distinctions and significant public announcements explicitly approved for publication, not routine development activity.

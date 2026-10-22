@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { formatPeriod, honors } from "../data/updates";
+import { projects } from "../data/projects";
 ---
 
 <BaseLayout title="CV — Vu Truong Giang" description="Curriculum vitae of Vu Truong Giang: student researcher focused on cognitive AI, autonomous agents, security tooling and systems engineering.">
@@ -38,35 +39,15 @@ import { formatPeriod, honors } from "../data/updates";
 
   <section class="section-block">
     <h2>Research & engineering projects</h2>
-    <div class="cv-entry">
-      <span class="cv-key">SENTIA Lab</span>
-      <div class="cv-value">
-        <strong><a href="/work/aelia/">AELIA</a> — Autonomous cognitive AI</strong>
-        <p>Research prototype exploring a persistent, autonomous digital entity with continuity of identity, self-directed goals and experience-driven behavior.</p>
-        <p>Python cognitive kernel: perception, episodic/autobiographical memory, belief/world/self models, appraisal, deliberation and bounded autonomy. Research into consciousness-like behavior, simulated affect, relationships and Theory of Mind.</p>
+    {projects.filter((project) => project.selected || project.slug === "opusmc").map((project) => (
+      <div class="cv-entry">
+        <span class="cv-key">{project.affiliation}</span>
+        <div class="cv-value">
+          <strong><a href={"/work/" + project.slug + "/"}>{project.name}</a> — {project.label}</strong>
+          <p>{project.description}</p>
+        </div>
       </div>
-    </div>
-    <div class="cv-entry">
-      <span class="cv-key">RiFT Research · SENTIA Lab</span>
-      <div class="cv-value">
-        <strong><a href="/work/rift/">RiFT</a> — Security framework</strong>
-        <p>Active engineering on an agent-assisted black-box web/API security research framework, integrating MCP-based tools, remote bridges, scoped execution and isolated sandboxes.</p>
-      </div>
-    </div>
-    <div class="cv-entry">
-      <span class="cv-key">SENTIA Lab</span>
-      <div class="cv-value">
-        <strong><a href="/work/lattice/">Lattice</a> — Distributed systems</strong>
-        <p>Early-stage exploration of peer-to-peer networking and lightweight coordination across heterogeneous edge and compute nodes.</p>
-      </div>
-    </div>
-    <div class="cv-entry">
-      <span class="cv-key">OpusMC</span>
-      <div class="cv-value">
-        <strong><a href="/work/opusmc/">Opus Client</a> — Client & runtime engineering</strong>
-        <p>Performance-oriented Minecraft client/runtime systems, including Forge integration, rendering, input and networking infrastructure, and modular architecture.</p>
-      </div>
-    </div>
+    ))}
   </section>
 
   <section class="section-block">

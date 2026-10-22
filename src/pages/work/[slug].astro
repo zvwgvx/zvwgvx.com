@@ -26,7 +26,7 @@ const { project } = Astro.props;
       <div class="detail-meta">
         <div><span class="detail-field-label">Field</span><strong>{project.category}</strong></div>
         <div><span class="detail-field-label">Affiliation</span><strong>{project.affiliation}</strong></div>
-        <div><span class="detail-field-label">Status</span><strong>{project.phase}</strong></div>
+
       </div>
     </header>
     <section class="detail-section" aria-labelledby="overview">
@@ -34,13 +34,13 @@ const { project } = Astro.props;
       {project.introduction.map((paragraph) => <p>{paragraph}</p>)}
     </section>
     <section class="detail-section" aria-labelledby="areas">
-      <h2 id="areas">Areas of focus</h2>
+      <h2 id="areas">Research & engineering interests</h2>
       <ul class="focus-list">
         {project.areas.map((area) => <li>{area}</li>)}
       </ul>
     </section>
     <section class="detail-section" aria-labelledby="stack">
-      <h2 id="stack">Technology & concepts</h2>
+      <h2 id="stack">Fields & concepts</h2>
       <div class="tag-list">{project.stack.map((item) => <span class="tag">{item}</span>)}</div>
     </section>
     {project.repository && (
