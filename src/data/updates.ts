@@ -6,7 +6,6 @@ export type Honor = {
   title: string;
   detail?: string;
   url?: string;
-  inTimeline?: boolean;
 };
 
 export type Update = {
@@ -91,16 +90,15 @@ export const honors: Honor[] = [
     period: "",
     category: "Distinction",
     title: "Codeforces Expert — @zvwg.vx",
-    url: "https://codeforces.com/profile/zvwg.vx",
-    inTimeline: false
+    url: "https://codeforces.com/profile/zvwg.vx"
   }
-];
+].sort((a, b) => b.period.localeCompare(a.period));
 
 export const announcements: Update[] = [];
 
 export const updates: Update[] = [
   ...announcements,
-  ...honors.filter((honor) => honor.inTimeline !== false).map((honor) => ({
+  ...honors.map((honor) => ({
     period: honor.period,
     category: honor.category,
     title: honor.title,

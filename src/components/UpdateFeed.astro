@@ -13,7 +13,11 @@ const { items, collapsible = false } = Astro.props;
   {items.map((item, index) => (
     <article class:list={["update-row", { "update-row-featured": index === 0 }]}>
       <div class="update-meta">
-        <time class="update-period" datetime={item.period}>{formatPeriod(item.period)}</time>
+        {item.period ? (
+          <time class="update-period" datetime={item.period}>{formatPeriod(item.period)}</time>
+        ) : (
+          <span class="update-period">{item.category === "Distinction" ? "Ranking" : formatPeriod(item.period)}</span>
+        )}
         <span class="update-category">{item.category}</span>
       </div>
       <div class="update-main">

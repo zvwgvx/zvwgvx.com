@@ -81,7 +81,7 @@ Project descriptions are in `src/data/projects.ts`. Layout, navigation and metad
 
 The **Latest updates** section is powered by `src/data/updates.ts`.
 
-- Add awards and distinctions to the `honors` array. They automatically appear in the CV and the updates timeline; set `inTimeline: false` only for non-event distinctions, such as a current platform ranking.
+- Add awards and distinctions to the `honors` array. They automatically appear in the same chronological order in both CV and Updates. Undated rankings, such as Codeforces Expert, appear at the bottom with a `Ranking` label.
 - Add other news and project milestones to `announcements` with a date and category.
 - All updates are sorted newest first. The homepage displays the first three, and `/updates/` displays the full timeline.
 - The default site theme is dark, with an optional light-mode switch and a stored visitor preference.

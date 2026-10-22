@@ -65,6 +65,9 @@ jobs:
             exit 1
           fi
           curl -fsS http://127.0.0.1:4321/updates/ | grep -q "2022"
+          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Codeforces Expert"
+          curl -fsS http://127.0.0.1:4321/updates/ | grep -q "Ranking"
+          node scripts/check-honors.mjs
           if curl -fsS http://127.0.0.1:4321/cv/ | grep -q "Academic year 2022–2023"; then
             echo "CV must not contain inferred academic year for past awards"
             exit 1
