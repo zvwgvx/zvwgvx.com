@@ -23,7 +23,7 @@ export const projects: Project[] = [
     description: "Research into persistent autonomous digital entities, cognitive identity, simulated affect and social cognition.",
     introduction: [
       "AELIA investigates how an artificial entity might develop continuity of identity, internal models, independent goals and behavior shaped by experience over time.",
-      "Its research spans memory and belief formation, self and world models, affective processes, social relationships, Theory of Mind and computational approaches to consciousness-like behavior. These are research questions, not claims of demonstrated consciousness."
+      "Its research spans memory and belief formation, self and world models, affective processes, social relationships, Theory of Mind and computational approaches to consciousness-like behavior. These questions concern computational models and do not equate simulation with consciousness."
     ],
     areas: [
       "Identity, continuity and long-term autonomy",
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     description: "Research into AI-assisted security assessment, vulnerability discovery and extensible security tooling.",
     introduction: [
       "RiFT explores the role of autonomous agents in security research across black-box and white-box web assessment, source-code analysis, reverse engineering, binary analysis and network-layer security.",
-      "Its broader direction includes vulnerability research, approaches to zero-day discovery, and orchestration of specialized tools through interoperable interfaces such as MCP. Controlled execution and isolation are central architectural principles, not a list of shipped features."
+      "This research also examines vulnerability discovery, interoperable tool environments such as MCP, and the security boundaries needed for controlled experimentation."
     ],
     areas: [
       "Black-box and white-box web security assessment",
